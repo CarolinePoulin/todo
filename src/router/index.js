@@ -5,17 +5,31 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'accueil',
-      component: Accueil
-    }
-
-/*    {
-      path: '/home',
-      name: 'home',
-      component: HomeView
+      path: '/depasse',
+      name: 'depasse',
+      component: depasse
     },
     {
+      path: '/pasLimite',
+      name: 'pasLimite',
+      component: pasLimite
+    },
+    {
+      path: '/encoreTemps',
+      name: 'encoreTemps',
+      component: encoreTemps
+    },
+    {
+      path: '/dansTemps',
+      name: 'dansTemps',
+      component: dansTemps
+    },
+    {
+      path: '/horsTemps',
+      name: 'horsTemps',
+      component: horsTemps
+    }
+/*  {
       path: '/about',
       name: 'about',
       // route level code-splitting

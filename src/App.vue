@@ -5,19 +5,22 @@ import Accueil from './components/Accueil.vue'
 
 <template>
   <header>
-<!--    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+    <img alt="Application logo" class="logo" src="@/assets/checklist.png" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Bonjour!" />
+      <Accueil msg="Bienvenue dans mon application TODO" />
 
       <nav>
-        <RouterLink to="/">Accueil</RouterLink>
-<!--        <RouterLink to="/about">About</RouterLink> -->
+        <RouterLink to="/depasse" class="btn btn-danger">Dépassées</RouterLink>
+        <RouterLink to="/pasLimite" class="btn btn-secondary">Pas de limite</RouterLink>
+        <RouterLink to="/encoreTemps" class="btn btn-warning">Encore dans les temps</RouterLink>
+        <RouterLink to="/dansTemps" class="btn btn-success">Accomplies dans les temps</RouterLink>
+        <RouterLink to="/horsTemps" class="btn btn-info">Accomplies hors des temps</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+<!--  <RouterView /> -->
 </template>
 
 <style scoped>
@@ -48,7 +51,7 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 2rem;
   border-left: 1px solid var(--color-border);
 }
 
