@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Accueil from './components/Accueil.vue'
+
 </script>
 
 <template>
@@ -8,19 +9,43 @@ import Accueil from './components/Accueil.vue'
     <img alt="Application logo" class="logo" src="@/assets/checklist.png" width="125" height="125" />
 
     <div class="wrapper">
-      <Accueil msg="Bienvenue dans mon application TODO" />
+      <Accueil msg="Connectez-vous!" />
 
       <nav>
-        <RouterLink to="/depasse" class="btn btn-danger">Dépassées</RouterLink>
-        <RouterLink to="/pasLimite" class="btn btn-secondary">Pas de limite</RouterLink>
-        <RouterLink to="/encoreTemps" class="btn btn-warning">Encore dans les temps</RouterLink>
-        <RouterLink to="/dansTemps" class="btn btn-success">Accomplies dans les temps</RouterLink>
-        <RouterLink to="/horsTemps" class="btn btn-info">Accomplies hors des temps</RouterLink>
+
       </nav>
+
+      <div class="form">
+        <form id="form" action="/src/views/Application.vue" @submit="validateForm" method="post" novalidate="true">
+          <div>
+            <p v-if="errors.length">
+              <b>Veuillez corriger les erreurs suivantes):</b>
+              <ul>
+                <li v-for="error in errors">{{ error }}</li>
+              </ul>
+            </p>
+          </div>
+          <div class="input-control">
+            <label for="emailInput" class="form-label">Adresse courriel:</label>
+            <input type="email" class="form-control" id="emailInput" v-model="emailInput" name="emailInput">
+            <div id="errorMessage"></div>
+          </div>
+          <div class="input-control">
+            <label for="passwordInput" class="form-label">Mot de passe:</label>
+            <input type="password" class="form-control" id="passwordInput" v-model="passwordInput" name="passwordInput">
+            <div id="errorMessage"></div>
+          </div>
+          <div>
+            <button type="submit" class="submit btn btn-primary">Soumettre</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </header>
 
-<!--  <RouterView /> -->
+  <RouterView /> 
+<!--  <script src="services/validation.js"></script>  -->
 </template>
 
 <style scoped>
@@ -41,6 +66,17 @@ nav {
   margin-top: 2rem;
 }
 
+div.greetings {
+  text-align: center;
+}
+
+div.form {
+  width: 500px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
@@ -59,7 +95,7 @@ nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -84,5 +120,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

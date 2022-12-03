@@ -1,5 +1,11 @@
+import { VueElement } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import Accueil from '../views/Accueil.vue'
+import depasse from '../views/routers.vue'
+import pasLimite from '../views/routers.vue'
+import encoreTemps from '../views/routers.vue'
+import dansTemps from '../views/routers.vue'
+import horsTemps from '../views/routers.vue'
+import validate from '../views/routers.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,7 +34,12 @@ const router = createRouter({
       path: '/horsTemps',
       name: 'horsTemps',
       component: horsTemps
-    }
+    },
+    {
+      path: '/validate',
+      name: 'validate',
+      component: validate
+    },
 /*  {
       path: '/about',
       name: 'about',
